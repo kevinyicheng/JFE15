@@ -7,18 +7,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Galada&family=Montserrat:wght@400;600;700&family=Noto+Sans+TC:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-gradient: linear-gradient(90deg, #0093C1, #40c4ff);
-            --highlight-color: #40c4ff;
+            --primary-gradient: linear-gradient(90deg, #0093C1, #64b5f6);
             --text-color: #fff;
-            --glass-bg: rgba(255, 255, 255, 0.1);
-            --card-bg: rgba(255, 255, 255, 0.15);
+            --glass-bg: rgba(255, 255, 255, 0.15);
+            --card-bg: rgba(50, 70, 100, 0.3);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Noto Sans TC', 'Montserrat', sans-serif; /* 中文優先使用思源黑體，英文用 Montserrat */
+            font-family: 'Noto Sans TC', 'Montserrat', sans-serif;
         }
 
         body {
@@ -26,58 +25,59 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background: linear-gradient(135deg, #0d1b2a, #778da9);
+            background: linear-gradient(135deg, #1e88e5, #90caf9);
             padding: 20px;
             position: relative;
         }
 
         .container {
             background: var(--glass-bg);
-            padding: 3rem; /* 放大整體間距 */
-            border-radius: 20px;
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
             text-align: center;
-            max-width: 520px; /* 整體寬度稍增大 */
+            max-width: 450px;
             width: 100%;
             animation: fadeIn 0.8s ease-in-out;
             border: 1px solid rgba(255, 255, 255, 0.15);
+            position: relative;
         }
 
         h2 {
-            font-size: 2.5rem; /* 放大標題 */
+            font-size: 2rem;
             color: var(--text-color);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
-            letter-spacing: 1.2px;
+            letter-spacing: 1px;
             font-weight: 700;
             line-height: 1.4;
         }
 
         label {
             color: var(--text-color);
-            font-size: 1.4rem; /* 放大標籤 */
+            font-size: 1.2rem;
             display: block;
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.6rem;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
             font-weight: 600;
         }
 
         input {
             width: 100%;
-            padding: 1.2rem; /* 放大輸入框內距 */
-            margin-bottom: 2rem;
+            padding: 0.9rem;
+            margin-bottom: 1.5rem;
             border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 12px;
-            font-size: 1.3rem; /* 放大輸入文字 */
+            border-radius: 10px;
+            font-size: 1.1rem;
             background: rgba(255, 255, 255, 0.85);
             text-align: center;
             transition: all 0.3s ease;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
         }
 
         input:focus {
             outline: none;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+            box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
             transform: scale(1.02);
             background: #fff;
             border-color: rgba(255, 255, 255, 0.4);
@@ -85,39 +85,39 @@
 
         button {
             width: 100%;
-            padding: 1.2rem; /* 放大按鈕內距 */
+            padding: 0.9rem;
             background: var(--primary-gradient);
             color: var(--text-color);
             border: none;
-            border-radius: 12px;
-            font-size: 1.4rem; /* 放大按鈕文字 */
+            border-radius: 10px;
+            font-size: 1.2rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(0, 147, 193, 0.4);
+            box-shadow: 0 4px 15px rgba(0, 147, 193, 0.4);
         }
 
         button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 147, 193, 0.6);
-            background: linear-gradient(90deg, #40c4ff, #0093C1);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 147, 193, 0.6);
+            background: linear-gradient(90deg, #64b5f6, #0093C1);
         }
 
         .result {
-            margin-top: 3rem; /* 放大結果區間距 */
+            margin-top: 2rem;
             display: flex;
             flex-direction: column;
-            gap: 1.8rem; /* 放大卡片間距 */
+            gap: 1.2rem;
         }
 
         .result-card {
             background: var(--card-bg);
-            padding: 1.5rem; /* 放大卡片內距 */
-            border-radius: 12px;
-            font-size: 1.2rem; /* 放大卡片文字 */
+            padding: 1rem;
+            border-radius: 10px;
+            font-size: 1.2rem;
             color: var(--text-color);
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
             border: 1px solid rgba(255, 255, 255, 0.1);
             animation: fadeIn 0.5s ease-in-out;
             transition: transform 0.2s ease;
@@ -130,9 +130,9 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 4px;
+            height: 3px;
             background: var(--primary-gradient);
-            border-radius: 12px 12px 0 0;
+            border-radius: 10px 10px 0 0;
         }
 
         .result-card:hover {
@@ -140,14 +140,29 @@
         }
 
         .result-card span {
-            color: var(--highlight-color);
+            color: var(--text-color);
             font-weight: 700;
         }
 
         .result-card hr {
             border: none;
             border-top: 1px solid rgba(255, 255, 255, 0.2);
-            margin: 1rem 0; /* 放大分隔線間距 */
+            margin: 0.6rem 0;
+        }
+
+        .result-card-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--text-color);
+        }
+
+        .result-note {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-color);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            line-height: 1.5;
         }
 
         .watermark {
@@ -156,10 +171,33 @@
             left: 50%;
             transform: translateX(-50%);
             font-family: 'Galada', cursive;
-            font-size: 1.5rem; /* 放大浮水印 */
+            font-size: 1.2rem;
             color: rgba(255, 255, 255, 0.3);
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
             pointer-events: none;
+        }
+
+        .loading-emoji {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20rem; /* 放大五倍，原 4rem */
+            display: none;
+        }
+
+        @keyframes shake {
+            0% { transform: translate(-50%, -50%) translateX(0); }
+            20% { transform: translate(-50%, -50%) translateX(-10px); }
+            40% { transform: translate(-50%, -50%) translateX(10px); }
+            60% { transform: translate(-50%, -50%) translateX(-10px); }
+            80% { transform: translate(-50%, -50%) translateX(10px); }
+            100% { transform: translate(-50%, -50%) translateX(0); }
+        }
+
+        .shaking {
+            display: block;
+            animation: shake 1s ease-in-out; /* 原地抖動，1秒 */
         }
 
         @keyframes fadeIn {
@@ -175,24 +213,33 @@
 
         @media (max-width: 480px) {
             .container {
-                padding: 2rem;
+                padding: 1.5rem;
                 max-width: 90%;
             }
             h2 {
-                font-size: 2rem;
+                font-size: 1.6rem;
             }
             label {
-                font-size: 1.2rem;
+                font-size: 1rem;
             }
             input, button {
-                font-size: 1.2rem;
-                padding: 1rem;
+                font-size: 1rem;
+                padding: 0.8rem;
             }
             .result-card {
                 font-size: 1rem;
             }
+            .result-card-title {
+                font-size: 1rem;
+            }
+            .result-note {
+                font-size: 0.8rem;
+            }
             .watermark {
-                font-size: 1.2rem;
+                font-size: 1rem;
+            }
+            .loading-emoji {
+                font-size: 15rem; /* 小螢幕放大五倍，原 3rem */
             }
         }
     </style>
@@ -208,9 +255,10 @@
         <div class="result" id="result"></div>
     </div>
     <div class="watermark">made by Kevinyicheng</div>
+    <div class="loading-emoji" id="loadingEmoji">💰</div>
 
     <script>
-        function calculateReturns() {
+        async function calculateReturns() {
             const monthlyInvestment = parseFloat(document.getElementById('monthlyInvestment').value);
             const baseYears = parseInt(document.getElementById('investmentYears').value);
 
@@ -223,30 +271,48 @@
                 return;
             }
 
-            const annualReturnRate = 0.14;
+            const loadingEmoji = document.getElementById('loadingEmoji');
             const resultDiv = document.getElementById('result');
             resultDiv.innerHTML = '';
 
+            // 顯示錢包 Emoji 並啟動抖動動畫
+            loadingEmoji.classList.add('shaking');
+
+            // 等待動畫完成（1秒）
+            await new Promise(resolve => setTimeout(resolve, 1000));
+
+            // 隱藏 Emoji
+            loadingEmoji.classList.remove('shaking');
+
+            const annualReturnRate = 0.08;
             const periods = [baseYears, baseYears + 5, baseYears + 10, baseYears + 15].filter(y => y <= 30);
 
             periods.forEach(years => {
                 const months = years * 12;
                 const totalCost = monthlyInvestment * months;
                 const futureValue = monthlyInvestment * ((Math.pow(1 + annualReturnRate / 12, months) - 1) / (annualReturnRate / 12));
-                const formattedCost = totalCost.toLocaleString('zh-TW', { style: 'currency', currency: 'TWD' });
-                const formattedValue = futureValue.toLocaleString('zh-TW', { style: 'currency', currency: 'TWD' });
+                const formattedCost = totalCost.toLocaleString('zh-TW', { style: 'currency', currency: 'TWD', maximumFractionDigits: 0 });
+                const formattedValue = futureValue.toLocaleString('zh-TW', { style: 'currency', currency: 'TWD', maximumFractionDigits: 0 });
 
                 const card = document.createElement('div');
                 card.className = 'result-card';
-                card.innerHTML = `持續買進 ${years} 年<br><hr>總投入成本 <span>${formattedCost}</span><br>預估資產終值 <span>${formattedValue}</span>`;
+                card.innerHTML = `<span class="result-card-title">持續買進 ${years} 年</span><br><hr>總投入成本 <span>${formattedCost}</span><br>預估資產終值 <span>${formattedValue}</span>`;
                 resultDiv.appendChild(card);
             });
 
             const note = document.createElement('div');
-            note.className = 'result-card';
-            note.innerHTML = `備註：基於 QQQ 長期平均年化報酬率 14% 計算<br>實際報酬可能因市場波動而異`;
+            note.className = 'result-note';
+            note.innerHTML = `基於美國科技股長期平均年化報酬保守8%計算<br>實際報酬可能因市場波動而異`;
             resultDiv.appendChild(note);
+
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
         }
+
+        document.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                calculateReturns();
+            }
+        });
     </script>
 </body>
 </html>
