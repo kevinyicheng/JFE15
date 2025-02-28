@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>美國科技基金長期買進預估</title>
+    <link href="https://fonts.googleapis.com/css2?family=Galada&family=Montserrat:wght@400;600;700&family=Noto+Sans+TC:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(90deg, #0093C1, #40c4ff);
+            --highlight-color: #40c4ff;
+            --text-color: #fff;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --card-bg: rgba(255, 255, 255, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans TC', 'Montserrat', sans-serif; /* 中文優先使用思源黑體，英文用 Montserrat */
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0d1b2a, #778da9);
+            padding: 20px;
+            position: relative;
+        }
+
+        .container {
+            background: var(--glass-bg);
+            padding: 3rem; /* 放大整體間距 */
+            border-radius: 20px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 520px; /* 整體寬度稍增大 */
+            width: 100%;
+            animation: fadeIn 0.8s ease-in-out;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        h2 {
+            font-size: 2.5rem; /* 放大標題 */
+            color: var(--text-color);
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+            letter-spacing: 1.2px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        label {
+            color: var(--text-color);
+            font-size: 1.4rem; /* 放大標籤 */
+            display: block;
+            margin-bottom: 0.8rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            font-weight: 600;
+        }
+
+        input {
+            width: 100%;
+            padding: 1.2rem; /* 放大輸入框內距 */
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            font-size: 1.3rem; /* 放大輸入文字 */
+            background: rgba(255, 255, 255, 0.85);
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        input:focus {
+            outline: none;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+            transform: scale(1.02);
+            background: #fff;
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        button {
+            width: 100%;
+            padding: 1.2rem; /* 放大按鈕內距 */
+            background: var(--primary-gradient);
+            color: var(--text-color);
+            border: none;
+            border-radius: 12px;
+            font-size: 1.4rem; /* 放大按鈕文字 */
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 147, 193, 0.4);
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 147, 193, 0.6);
+            background: linear-gradient(90deg, #40c4ff, #0093C1);
+        }
+
+        .result {
+            margin-top: 3rem; /* 放大結果區間距 */
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem; /* 放大卡片間距 */
+        }
+
+        .result-card {
+            background: var(--card-bg);
+            padding: 1.5rem; /* 放大卡片內距 */
+            border-radius: 12px;
+            font-size: 1.2rem; /* 放大卡片文字 */
+            color: var(--text-color);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeIn 0.5s ease-in-out;
+            transition: transform 0.2s ease;
+            position: relative;
+        }
+
+        .result-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--primary-gradient);
+            border-radius: 12px 12px 0 0;
+        }
+
+        .result-card:hover {
+            transform: scale(1.02);
+        }
+
+        .result-card span {
+            color: var(--highlight-color);
+            font-weight: 700;
+        }
+
+        .result-card hr {
+            border: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            margin: 1rem 0; /* 放大分隔線間距 */
+        }
+
+        .watermark {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Galada', cursive;
+            font-size: 1.5rem; /* 放大浮水印 */
+            color: rgba(255, 255, 255, 0.3);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            pointer-events: none;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 2rem;
+                max-width: 90%;
+            }
+            h2 {
+                font-size: 2rem;
+            }
+            label {
+                font-size: 1.2rem;
+            }
+            input, button {
+                font-size: 1.2rem;
+                padding: 1rem;
+            }
+            .result-card {
+                font-size: 1rem;
+            }
+            .watermark {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>美國科技基金<br>長期買進預估</h2>
+        <label for="monthlyInvestment">每月投入金額（新台幣）：</label>
+        <input type="number" id="monthlyInvestment" placeholder="請輸入金額" min="0">
+        <label for="investmentYears">持續買進年期（年）：</label>
+        <input type="number" id="investmentYears" placeholder="請輸入年數" min="1" max="30">
+        <button onclick="calculateReturns()">計算</button>
+        <div class="result" id="result"></div>
+    </div>
+    <div class="watermark">made by Kevinyicheng</div>
+
+    <script>
+        function calculateReturns() {
+            const monthlyInvestment = parseFloat(document.getElementById('monthlyInvestment').value);
+            const baseYears = parseInt(document.getElementById('investmentYears').value);
+
+            if (isNaN(monthlyInvestment) || monthlyInvestment <= 0) {
+                alert('請輸入有效的每月投入金額！');
+                return;
+            }
+            if (isNaN(baseYears) || baseYears < 1 || baseYears > 30) {
+                alert('請輸入有效的年期（1-30 年）！');
+                return;
+            }
+
+            const annualReturnRate = 0.14;
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '';
+
+            const periods = [baseYears, baseYears + 5, baseYears + 10, baseYears + 15].filter(y => y <= 30);
+
+            periods.forEach(years => {
+                const months = years * 12;
+                const totalCost = monthlyInvestment * months;
+                const futureValue = monthlyInvestment * ((Math.pow(1 + annualReturnRate / 12, months) - 1) / (annualReturnRate / 12));
+                const formattedCost = totalCost.toLocaleString('zh-TW', { style: 'currency', currency: 'TWD' });
+                const formattedValue = futureValue.toLocaleString('zh-TW', { style: 'currency', currency: 'TWD' });
+
+                const card = document.createElement('div');
+                card.className = 'result-card';
+                card.innerHTML = `持續買進 ${years} 年<br><hr>總投入成本 <span>${formattedCost}</span><br>預估資產終值 <span>${formattedValue}</span>`;
+                resultDiv.appendChild(card);
+            });
+
+            const note = document.createElement('div');
+            note.className = 'result-card';
+            note.innerHTML = `備註：基於 QQQ 長期平均年化報酬率 14% 計算<br>實際報酬可能因市場波動而異`;
+            resultDiv.appendChild(note);
+        }
+    </script>
+</body>
+</html>
